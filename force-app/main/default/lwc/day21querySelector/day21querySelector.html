@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="QuerySelector-CssClasses" icon-name="custom:custom14">
+        <div class="slds-m-horizontal_small slds-text-color_default">
+            <p class={PropertyNameFromJS}>Some Random Text</p>
+        </div>
+        <div class="slds-m-top_medium button-container">
+            <lightning-button variant="success" label="Add CSS" title="Primary action" onclick={addCss} class="slds-m-left_x-small"></lightning-button>
+
+            <lightning-button variant="brand" label="Remove CSS" title="Primary action" onclick={removeCss} class="slds-m-left_x-small"></lightning-button>
+
+            <lightning-button variant="destructive-text" label="Toggle CSS" title="Primary action" onclick={toggleCss} class="slds-m-left_x-small"></lightning-button>
+
+        </div>
+    </lightning-card>
+</template>

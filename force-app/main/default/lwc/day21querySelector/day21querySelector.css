@@ -1,0 +1,11 @@
+.redcolorBG{
+    background-color: rgb(221, 236, 7);
+    text-align: center;
+}
+.blackBDR{
+    border: solid black;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+}

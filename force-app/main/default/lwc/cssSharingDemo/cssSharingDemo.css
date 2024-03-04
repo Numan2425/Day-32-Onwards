@@ -1,0 +1,9 @@
+@import "c/cssSharing";
+h2{
+    background-color: var(--c-colorBackground); /*colorBackground is an aura token name*/
+}
+.buttonClass{
+    --slds-c-button-brand-color-background : var(--c-colorBackground);
+    --slds-c-button-brand-color-background-active : var(--c-colorBackground);
+    --slds-c-button-brand-color-background-hover : red;
+}

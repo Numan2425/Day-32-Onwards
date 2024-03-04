@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Searched Records">
+
+        <div >
+            <lightning-input
+                label="Enter Account Name"
+                name="enter-search"
+                type="search"
+                onkeyup={changeHandler}
+            ></lightning-input>
+        </div>
+
+        <template lwc:if={apporval}>
+            <div>
+                <lightning-datatable
+                        key-field="id"
+                        data={outputs.data}
+                        columns={columns}>
+                </lightning-datatable>
+            </div>
+        </template>
+        
+        
+
+    </lightning-card>
+    
+</template>

@@ -1,0 +1,37 @@
+<template>
+    <lightning-card title="Record Form">
+       <!--
+        <lightning-record-form object-api-name={objectApiName} record-id={recordId}  layout-type="Full">
+
+        </lightning-record-form>
+       --> 
+        <lightning-record-form object-api-name={objectApiName} record-id={recordId}  fields={fields}>
+
+        </lightning-record-form>
+    </lightning-card>
+    <lightning-card title="Record Form">
+        <!--
+         <lightning-record-form object-api-name={objectApiName} record-id={recordId}  layout-type="Full">
+ 
+         </lightning-record-form>
+        --> 
+         <lightning-record-form object-api-name={objectApiName} record-id={recordId}  fields={fields} mode="readonly">
+ 
+         </lightning-record-form>
+     </lightning-card>
+     <lightning-card title="Record Form">
+        <!--
+         <lightning-record-form object-api-name={objectApiName} record-id={recordId}  layout-type="Full">
+ 
+         </lightning-record-form>
+        --> 
+         <lightning-record-form object-api-name={objectApiName} record-id={recordId}  fields={fields} mode="edit">
+ 
+         </lightning-record-form>
+     </lightning-card>
+
+     <lightning-record-form object-api-name={objectApiName} fields={fields} >
+ 
+     </lightning-record-form>
+ </lightning-card>
+</template>

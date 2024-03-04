@@ -1,0 +1,8 @@
+.firstElement{
+    border-top: solid red;
+    padding-top: 5px;
+}
+.secondElement{
+    border-bottom: solid red;
+    padding-bottom: 5px;
+}

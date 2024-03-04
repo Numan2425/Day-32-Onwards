@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Create An Account Record">
+        <lightning-input type="text" label="Account Name" required="true" onchange={changeHandler} name="accName"></lightning-input>
+        <lightning-input type="text" label="Account No" onchange={changeHandler} name="accNo"></lightning-input>
+        <lightning-input type="text" label="Annual Revenue" onchange={changeHandler} name="accRev"></lightning-input>
+        <lightning-button variant="success" label="Create" title="Create Account Record" icon-name="utility:check" class="slds-m-left_x-small" onclick={createHandler}></lightning-button>
+
+
+    </lightning-card>
+</template>

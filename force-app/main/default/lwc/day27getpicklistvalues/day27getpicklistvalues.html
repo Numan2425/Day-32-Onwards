@@ -1,0 +1,23 @@
+<template>
+    <lightning-combobox
+        name="status"
+        label="Industry"
+        placeholder="Choose One"
+        value={value}
+        onchange={handleChange}
+        options={pickListOptions}
+    >
+    </lightning-combobox>
+    <p>Selected option: {value}</p>
+
+
+    <lightning-combobox
+        name="status"
+        label="Banks"
+        placeholder="Choose One"
+        value={value}
+        onchange={handleChange}
+        options={AllPicklistOnAccount}
+    >
+    </lightning-combobox>
+</template>

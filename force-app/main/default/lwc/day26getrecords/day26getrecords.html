@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="day26getrecords">
+    
+        <template lwc:if={output}>
+            <template for:each={output.results} for:item="outpt">
+                <p key = {outpt.result.id}> {outpt.result.fields.Name.value}</p>
+            </template>
+        </template>
+
+    </lightning-card>
+</template>

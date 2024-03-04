@@ -1,0 +1,11 @@
+.incompleteBg{
+ background-color: rgb(249, 253, 3);
+ 
+}
+.completeBg{
+background-color: rgb(6, 243, 124);
+}
+.tasknameSize{
+    font-size: larger;
+    font-weight: bold;
+}

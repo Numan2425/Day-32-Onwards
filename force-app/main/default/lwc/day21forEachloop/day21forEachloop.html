@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Primitive Array Loop">
+        <template for:each={cities} for:item="currItem">
+            <p key={currItem} class="slds-p-left_medium">{currItem}</p>
+        </template>
+    </lightning-card>
+
+    <lightning-card title="For Each Obj Array">
+        <template for:each={names} for:item="currArrItem">
+            <p key={currArrItem.id} class="slds-p-left_medium">{currArrItem.firstName} {currArrItem.lastName}</p>
+        </template>
+    </lightning-card>
+
+    <lightning-card title="Itterator Obj Array">
+        <template iterator:it={names}>
+            <div key={it.value.id} class="slds-p-left_medium">
+                <div lwc:if={it.first} class="firstElement"></div>
+                <p> {it.value.firstName} {it.value.lastName} </p>
+                <div lwc:if={it.last} class="secondElement"></div>
+            </div>
+            
+        </template>
+    </lightning-card>
+</template>

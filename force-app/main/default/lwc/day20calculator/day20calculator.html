@@ -1,0 +1,39 @@
+<template>
+    <lightning-card title="Calculator" icon-name="utility:table">
+
+        <div class="slds-p-left_medium slds-p-right_medium">
+            <lightning-input type="number" name="input1" label="Enter a number 1" onchange={inputfuncNo1} placeholder="Write a Number" value={numberOne}
+            > </lightning-input>
+            <lightning-input type="number" name="input2" label="Enter a number 2" onchange={inputfuncNo2} placeholder="Write a Number" value={numberTwo} 
+            > </lightning-input>
+        </div>
+        <!-- Code for Each Operation
+                <div class="slds-m-top_small slds-m-left_large ">
+            <lightning-button variant="success" label="Add" title="Download action" icon-name="utility:add" icon-position="right" class="slds-m-left_x-small" width="10px" onclick={addFunc}></lightning-button>
+
+            <lightning-button variant="destructive" label="Minus" title="Download action" icon-name="utility:dash" icon-position="right" class="slds-m-left_x-small" onclick={minusFunc}></lightning-button>
+    
+            <lightning-button variant="Neutral" label="Multi" title="Download action" icon-name="utility:close" icon-position="right" class="slds-m-left_x-small" onclick={multiplyFunc}></lightning-button>
+    
+            <lightning-button variant="brand" label="Division" title="Download action" icon-name="utility:datadotcom" icon-position="right" class="slds-m-left_x-small custom" onclick={divideFunc}></lightning-button>
+        </div>
+        -->
+        <div class="slds-m-top_small slds-m-left_large ">
+            <lightning-button variant="success" label="Add" title="Download action" icon-name="utility:add" icon-position="right" class="slds-m-left_x-small" width="10px" onclick={calculation}></lightning-button>
+
+            <lightning-button variant="destructive" label="Minus" title="Download action" icon-name="utility:dash" icon-position="right" class="slds-m-left_x-small" onclick={calculation}></lightning-button>
+    
+            <lightning-button variant="Neutral" label="Multi" title="Download action" icon-name="utility:close" icon-position="right" class="slds-m-left_x-small" onclick={calculation}></lightning-button>
+    
+            <lightning-button variant="brand" label="Division" title="Download action" icon-name="utility:datadotcom" icon-position="right" class="slds-m-left_x-small custom" onclick={calculation}></lightning-button>
+        </div>
+
+        <template lwc:if={displayOutput}>
+            <div class="slds-p-left_medium slds-m-top_small">
+                <p>Output : {result}</p>
+            </div>
+        </template>
+        
+
+    </lightning-card>
+</template>

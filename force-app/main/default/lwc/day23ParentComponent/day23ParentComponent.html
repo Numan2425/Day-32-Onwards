@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Parent Component">
+        <lightning-input type="checkbox" label="Invoke Child Component" name="input2" onchange={onChangeHandler}></lightning-input>
+
+        <template lwc:if={ifShow}>
+            <c-day23-child-component></c-day23-child-component>
+        </template>
+    </lightning-card>
+   
+</template>

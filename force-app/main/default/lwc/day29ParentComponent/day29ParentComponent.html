@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Parent Component - Child To Parent Communication">
+        <c-day29-child-component onchildeventtoshowmessage = {handleOnParent}></c-day29-child-component>
+        <template lwc:if={displayMessage}>
+
+            <p>This message is being controlled by child</p>
+        </template>
+
+    </lightning-card>
+</template>

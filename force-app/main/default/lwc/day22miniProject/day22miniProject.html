@@ -1,0 +1,58 @@
+<template>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+        <lightning-card title="Add New Task">
+            <div class="slds-p-horizontal_small">
+                <lightning-input type="text" label="Enter Task" required="true" message-when-value-missing="Please Enter a Task" name="tname" onchange={tInputChange} value={taskName} class="selectMeForDuplicateErr"></lightning-input>
+                <lightning-input type="date" label="Date" field-level-help="This Date Will Help Us In Making ToDo List" name="tdate" onchange={tInputChange} value={taskDate}></lightning-input>
+            </div>
+            <div class="slds-m-top_x-small">
+                <lightning-button variant="brand" label="Reset" title="Primary action" onclick={resethandleClick} class="slds-m-left_x-small"></lightning-button>
+                <lightning-button variant="success" label="Add Task" title="Primary action" onclick={addTaskhandleClick} class="slds-m-left_x-small"></lightning-button>
+            </div>
+            
+        </lightning-card>
+        </div>
+        <div class="slds-col">
+            <lightning-card title="To Do List">
+                <div class="slds-p-horizontal_medium">
+                    <template for:each={inCompleteTaskArr} for:item="currItem" for:index="IndexHere">
+                        <div key={currItem.taskName} class="slds-box slds-theme_shade incompleteBg">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_8-of-12">
+                                    <p class="tasknameSize">{currItem.taskName}</p>
+                                    <p><lightning-formatted-date-time value={currItem.taskDate} year="2-digit" month="short" day="2-digit" weekday="long"></lightning-formatted-date-time></p>
+                                  </div>
+                                  <div class="slds-col slds-size_4-of-12">
+                                    <lightning-button-icon icon-name="utility:delete" alternative-text="Delete" class="slds-m-left_xx-small" title="Delete" onclick={delhandler} name={IndexHere}></lightning-button-icon>
+                                    <lightning-button-icon icon-name="utility:check"    alternative-text="Mark as Completed"   class="slds-m-left_xx-small" title="Delete" onclick={checkhandler} name={IndexHere}></lightning-button-icon>
+                                  </div>
+                            </div>
+
+                        </div>
+                    </template>
+                </div>
+            </lightning-card>
+        </div>
+        <div class="slds-col">
+            <lightning-card title="Completed Items">
+                <div class="slds-p-horizontal_medium">
+                    <template for:each={completedTaskArr} for:item="currentItemFromCompletedArray">
+                        <div key={currentItemFromCompletedArray.taskName} class="slds-box slds-theme_shade completeBg">
+                            <div>
+                                <p>{currentItemFromCompletedArray.taskName}</p>
+                            <p><lightning-formatted-date-time value={currentItemFromCompletedArray.taskDate} year="2-digit" month="short" day="2-digit" weekday="long"></lightning-formatted-date-time></p>
+                            </div>
+                            
+
+                        </div>
+                    
+                            
+                        
+                    </template>
+
+                </div>
+            </lightning-card>
+        </div>
+        </div>
+</template>

@@ -1,0 +1,15 @@
+<template>
+    
+    <lightning-card title="getObjectInfo">
+
+     
+        <div>
+            <template for:each={objData} for:item="ChildRelationName">
+                <p key ={ChildRelationName.childObjectApiName} > {ChildRelationName.childObjectApiName} </p>
+            </template>        
+        </div>
+
+
+    </lightning-card>
+
+</template>

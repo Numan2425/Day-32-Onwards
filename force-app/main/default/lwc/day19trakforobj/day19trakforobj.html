@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Greeting Component">
+        <div class="slds-p-left_medium">
+            <p>{details.fname}</p>
+            <p>{details.lname}</p>
+            
+        </div>
+        <div class="slds-m-top_xx-small">
+            <lightning-button
+            variant="brand" 
+            label="Change Text" 
+            title="Some Text When Hover Over the button" 
+            icon-name="action:edit" 
+            class="slds-m-left_x-small "
+            onclick={namechangefunc}>
+        </lightning-button>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Contacts" icon-name="custom-14">
+    <lightning-layout>
+        <lightning-layout-item>
+            <template lwc:if={contacts.data}>
+                <template for:each={contacts.data} for:item="contact">
+                    <c-day29con-item contactt={contact} key={contact.id} oncurrentcontactevent = {HandlerContactIdRecieved}> </c-day29con-item>
+                </template>
+            </template>
+        </lightning-layout-item>
+
+        <lightning-layout-item>
+            <template lwc:if={selectedCon}>
+                <img src={selectedCon.PhotoUrl} >
+                <p>{selectedCon.Name}</p>
+                <p><lightning-formatted-phone value={selectedCon.Phone} ></lightning-formatted-phone></p>
+                <p><lightning-formatted-email value={selectedCon.Email} ></lightning-formatted-email></p>
+            </template>
+        </lightning-layout-item>
+    </lightning-layout>
+
+</lightning-card>
+    
+
+    </template>

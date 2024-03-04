@@ -1,0 +1,18 @@
+<template>
+
+    <lightning-card title="Day24DataTable With Function">
+        <template lwc:if={accounts}> 
+            <div style="height: 300px;">
+                <lightning-datatable
+                        key-field="id"
+                        data={accounts}
+                        columns={columns}>
+                </lightning-datatable>
+            </div>
+        </template>
+        <template lwc:elseif={error}>
+            <c-error-panel errors={error} > </c-error-panel>
+        </template>
+       
+    </lightning-card>
+</template>
