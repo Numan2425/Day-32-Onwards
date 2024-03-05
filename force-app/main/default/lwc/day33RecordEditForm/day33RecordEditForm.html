@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Lightning Record Edit Form"></lightning-card>
+
+    <lightning-record-edit-form 
+    object-api-name={objectApiName} 
+    onsuccess={successHandler} onerror={errorHandler}>
+        <lightning-messages></lightning-messages>
+        <div>
+            <lightning-input-field field-name={fields.Name}></lightning-input-field>
+            <lightning-input-field field-name={fields.Industry}></lightning-input-field>
+            <lightning-input-field field-name={fields.Revenue}></lightning-input-field>
+            <lightning-input-field field-name={fields.Rating}></lightning-input-field>
+        </div>
+        <div>
+            <lightning-button type="submit" variant="brand" label="create"></lightning-button>
+        </div>
+
+        </lightning-input-field>
+    </lightning-record-edit-form>
+</template>
