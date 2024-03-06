@@ -1,0 +1,69 @@
+<template>
+    <lightning-card title="Create Account Record Wire Adapter" icon-name="custom:custom14"> 
+        <div class="slds-var-p-around_small">
+            <lightning-combobox
+            name="parent"
+            label="Parent Account"
+           
+            placeholder="Select parent account"
+            options={parentOptions}
+            onchange={handleChange}
+            required="true" ></lightning-combobox>
+
+            <lightning-input type="text"
+            label="Account"
+            name="accname"
+            max-length="2"
+            min-length="10"
+            message-when-value-missing="Please Enter Account"
+            message-when-too-short="Account Minimum length is 2"
+            message-when-too-long="Account Maximun length is 10"
+
+            onchange={handleChange}
+            >
+                
+            </lightning-input>
+
+            <lightning-input type="date"
+            label="Sla Expiration Date"
+            name = "slaExpDate"
+            onchange={handleChange}
+            >
+
+            </lightning-input>
+        <template lwc:if={accountInfoPicklist.data}>
+            <lightning-radio-group name="rating"
+                          label="Rating"
+                          options={accountInfoPicklist.data.values}
+                          value={value}
+                          type="button"></lightning-radio-group>
+        </template>
+
+        <lightning-slider label="No of Locations" value={noOfLoc}
+        min="1" max="50" step="1"
+        onchange={handleChange}
+        name="noofloc"
+
+        ></lightning-slider>
+
+        <lightning-input-rich-text
+        label="Description"
+        name = "description"
+        onchange={handleChange}
+        disabled-categories="FORMAT_FONT"
+        >
+    </lightning-input-rich-text>
+
+        </div>
+        <div class="slds-var-p-around_small">
+            <lightning-button
+            label="Save Record"
+            variant="brand"
+            onchange={saveRecordHandler}
+            >
+
+            </lightning-button>
+        </div>
+
+    </lightning-card>
+</template>
