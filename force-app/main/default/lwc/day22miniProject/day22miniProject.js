@@ -1,10 +1,29 @@
-import { LightningElement } from 'lwc';
-
+import { LightningElement, wire } from 'lwc';
+import taskManagerObj from '@salesforce/schema/Task_manager__c';
+import taskDatee from '@salesforce/schema/Task_manager__c.Task_Date__c';
+import taskname from '@salesforce/schema/Task_manager__c.Name';
+import isCompleted from '@salesforce/schema/Task_manager__c.isCompleted__c';
+import { createRecord } from 'lightning/uiRecordApi';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import inCompletedRecords from '@salesforce/apex/toDoAppClass.inCompletedRecords';
+import completedRecords from '@salesforce/apex/toDoAppClass.completedRecords';
 export default class Day22miniProject extends LightningElement {
     taskName="";
     taskDate=null; //null is object and date is also obj so we are intializing with null
     inCompleteTaskArr=[];
     completedTaskArr=[];
+    @wire(inCompletedRecords)incompleteWireData({data,error}){
+        if(data){
+              this.inCompleteTaskArr = data.map((currentItem)=>{
+            this.taskName = currentItem.Name;
+            this.taskDate = currentItem.Task_Date__c
+
+        })
+        }else{
+            console.log(error);
+        }
+      
+    }
     tInputChange(event){
         let {name,value} = event.target; // destructuring it will assign name and value of html attribue to js name,value
         if(name=="tname"){
@@ -25,16 +44,34 @@ export default class Day22miniProject extends LightningElement {
             this.taskDate = new Date().toISOString().slice(0,10);
         }
         if(this.isvalidfunc()){
-            this.inCompleteTaskArr = [...this.inCompleteTaskArr,{
-                taskName : this.taskName,
-                taskDate : this.taskDate
-            }]
+            // this.inCompleteTaskArr = [...this.inCompleteTaskArr,{
+            //     taskName : this.taskName,
+            //     taskDate : this.taskDate
+            // }]
+
+            let inputFields = {
+               
+            }
+             inputFields[taskname.fieldApiName] = this.taskName;
+            inputFields[taskDatee.fieldApiName] = this.taskDate;
+             inputFields[isCompleted.fieldApiName] = false;
+          let  recordInput = {
+                apiName : taskManagerObj.objectApiName,
+                fields : inputFields
+            }
+            createRecord (recordInput).then((result)=>{
+                console.log("task created successfully");
+                this.showToast("Success","Task Added Successfully","success");
+            });
+
+
+
         }
-        this.resethandleClick();
-        let sorteddArr = this.sortArr(this.inCompleteTaskArr);
-       // console.log('sorteddArr',JSON.stringify(sorteddArr));
-        this.inCompleteTaskArr=[...sorteddArr]; //this is call override of an array
-        console.log("this.inCompleteTaskArr",JSON.stringify(this.inCompleteTaskArr));
+    //     this.resethandleClick();
+    //     let sorteddArr = this.sortArr(this.inCompleteTaskArr);
+    //    // console.log('sorteddArr',JSON.stringify(sorteddArr));
+    //     this.inCompleteTaskArr=[...sorteddArr]; //this is call override of an array
+    //     console.log("this.inCompleteTaskArr",JSON.stringify(this.inCompleteTaskArr));
         }
 
     isvalidfunc(){
@@ -83,5 +120,14 @@ export default class Day22miniProject extends LightningElement {
         this.inCompleteTaskArr=[...sorteddd];
         console.log("this.inCompleteTaskArr",JSON.stringify(this.inCompleteTaskArr));
         this.completedTaskArr = [...this.completedTaskArr,arrReturnedBySpliceRemovedEntries[0]] // as we want to add only one item into completed so index[0]
+    }
+
+     showToast(title , message , variant) {
+        const event = new ShowToastEvent({
+            title:title,
+            message:message,
+            variant:variant
+        });
+        this.dispatchEvent(event);
     }
 }
